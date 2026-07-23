@@ -1,0 +1,51 @@
+[
+  {
+    "name": "chat:start button shows chat welcome",
+    "steps": [
+      {
+        "send": { "callback": "chat:start" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          {
+            "method": "editMessageText",
+            "payload": {
+              "text": "💬 Let's chat!\n\nJust type a message below and I'll reply. You can ask questions, brainstorm ideas, or just have a conversation."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "user sends a greeting and gets a response",
+    "steps": [
+      {
+        "send": { "text": "hello" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Hey there! 👋 How can I help you today?"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "user sends a question and gets a contextual response",
+    "steps": [
+      {
+        "send": { "text": "What's 2+2?" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Thanks for your message! I'm a chat assistant designed for conversation and brainstorming. You said: \"What's 2+2?\". What would you like to explore?"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

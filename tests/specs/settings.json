@@ -1,19 +1,34 @@
 [
   {
-    "name": "/settings",
+    "name": "/settings shows current language and options",
     "steps": [
       {
+        "send": { "text": "/settings" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Configure language preferences or clear conversation history"
+              "text": "⚙️ Settings\n\nLanguage: English\nConversation history: stored locally"
             }
           }
-        ],
-        "send": {
-          "text": "/settings"
-        }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "settings button from main menu shows settings",
+    "steps": [
+      {
+        "send": { "callback": "settings:show" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          {
+            "method": "editMessageText",
+            "payload": {
+              "text": "⚙️ Settings\n\nLanguage: English\nConversation history: stored locally"
+            }
+          }
+        ]
       }
     ]
   }
