@@ -1,13 +1,15 @@
 [
   {
-    "name": "/start replies with the welcome + main menu",
+    "name": "/start replies with welcome message and buttons",
     "steps": [
       {
         "send": { "text": "/start" },
         "expect": [
           {
             "method": "sendMessage",
-            "payload": { "text": "👋 Welcome! Tap a button below to get started." }
+            "payload": {
+              "text": "👋 Hi there! I'm your personal chat assistant.\n\nJust send me a message and I'll reply. Here's what I can do:\n• Answer questions and brainstorm ideas\n• Help you think through problems\n• Have a friendly conversation\n\n🔒 Your chats are private — I never share your messages."
+            }
           }
         ]
       }
